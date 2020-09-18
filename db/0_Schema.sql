@@ -3,6 +3,7 @@ CREATE DATABASE isuumo;
 
 DROP TABLE IF EXISTS isuumo.estate;
 DROP TABLE IF EXISTS isuumo.chair;
+DROP TABLE IF EXISTS isuumo.estate_point;
 
 CREATE TABLE isuumo.estate
 (
@@ -36,3 +37,10 @@ CREATE TABLE isuumo.chair
     popularity  INTEGER         NOT NULL,
     stock       INTEGER         NOT NULL
 );
+
+CREATE TABLE isuumo.estate_point
+(
+    id    INTEGER NOT NULL PRIMARY KEY,
+    point POINT   NOT NULL
+);
+ALTER TABLE isuumo.estate_point ADD INDEX idx_estate_point_01(`point`);
