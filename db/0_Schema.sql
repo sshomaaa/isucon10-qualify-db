@@ -3,7 +3,6 @@ CREATE DATABASE isuumo;
 
 DROP TABLE IF EXISTS isuumo.estate;
 DROP TABLE IF EXISTS isuumo.chair;
-DROP TABLE IF EXISTS isuumo.estate_point;
 
 CREATE TABLE isuumo.estate
 (
@@ -19,10 +18,12 @@ CREATE TABLE isuumo.estate
     door_width  INTEGER             NOT NULL,
     features    VARCHAR(64)         NOT NULL,
     popularity  INTEGER             NOT NULL,
-    dpopularity INTEGER AS (-popularity) NOT NULL
+    dpopularity INTEGER AS (-popularity) NOT NULL,
+    point       POINT AS (POINT(latitude, longitude)) STORED NOT NULL
 );
 ALTER TABLE isuumo.estate ADD INDEX idx_estate_01(`dpopularity`);
 ALTER TABLE isuumo.estate ADD INDEX idx_estate_02(`rent`);
+ALTER TABLE isuumo.estate ADD SPATIAL INDEX sidx_estate_01(`point`);
 
 CREATE TABLE isuumo.chair
 (
@@ -43,10 +44,3 @@ CREATE TABLE isuumo.chair
 );
 ALTER TABLE isuumo.chair ADD INDEX idx_chair_01(`dpopularity`);
 ALTER TABLE isuumo.chair ADD INDEX idx_chair_02(`stock`);
-
-CREATE TABLE isuumo.estate_point
-(
-    id    INTEGER NOT NULL PRIMARY KEY,
-    point POINT   NOT NULL
-);
-ALTER TABLE isuumo.estate_point ADD INDEX idx_estate_point_01(`point`);
