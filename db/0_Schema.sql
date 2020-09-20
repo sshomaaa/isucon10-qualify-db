@@ -50,3 +50,12 @@ CREATE TABLE isuumo.chair
 );
 ALTER TABLE isuumo.chair ADD INDEX idx_chair_01(`dpopularity`);
 ALTER TABLE isuumo.chair ADD INDEX idx_chair_02(`stock`);
+ALTER TABLE isuumo.chair ADD INDEX idx_chair_03(`price`);
+ALTER TABLE isuumo.chair ADD INDEX idx_chair_04(`height`);
+ALTER TABLE isuumo.chair ADD INDEX idx_chair_05(`color`);
+ALTER TABLE isuumo.chair ADD INDEX idx_chair_06(`depth`);
+ALTER TABLE isuumo.chair ADD INDEX idx_chair_07(`kind`);
+ALTER TABLE isuumo.chair ADD INDEX idx_chair_08(`width`);
+ALTER TABLE isuumo.chair ADD INDEX idx_chair_09(`height`, `price`);
+ALTER TABLE isuumo.chair ADD INDEX idx_chair_10(`kind`, `price`);
+ALTER TABLE isuumo.chair ADD INDEX idx_chair_11(`price`, `width`);
