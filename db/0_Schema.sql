@@ -23,6 +23,12 @@ CREATE TABLE isuumo.estate
 );
 ALTER TABLE isuumo.estate ADD INDEX idx_estate_01(`dpopularity`);
 ALTER TABLE isuumo.estate ADD INDEX idx_estate_02(`rent`);
+ALTER TABLE isuumo.estate ADD INDEX idx_estate_03(`door_width`, `rent`);
+ALTER TABLE isuumo.estate ADD INDEX idx_estate_04(`door_height`, `rent`);
+ALTER TABLE isuumo.estate ADD INDEX idx_estate_05(`door_width`);
+ALTER TABLE isuumo.estate ADD INDEX idx_estate_06(`door_height`);
+ALTER TABLE isuumo.estate ADD INDEX idx_estate_07(`rent`, `door_height`, `door_width`);
+ALTER TABLE isuumo.estate ADD INDEX idx_estate_08(`door_height`, `door_width`);
 ALTER TABLE isuumo.estate ADD SPATIAL INDEX sidx_estate_01(`point`);
 
 CREATE TABLE isuumo.chair
